@@ -3,9 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home</title>
+	<link rel="shortcut icon" type="image/x-icon" href="http://gudi.kr/images/icon_goodee.png">
 	<style>
 		body {margin: 0;}
 		* {text-align: center;}
+		*::focus {outline:none !important}
 		div {width: 60%; margin: 0 20%;}
 		div::after {display: table; content: ""; clear: both;}
 		button {
@@ -23,15 +25,61 @@
 			color: white;
 			border-radius: 5px;
 		}
-		button:active {
+		button::active {
 			background-color: #c0cccc;
 			color: black;
 		}
 	</style>	
 	<script type="text/javascript">
+		var html = "숫자를 입력하세요.";
+		var num = "";
+		var num1 = "";
+		var num2 = "";
+		var type = "";
 		function btnEvent(value){
-			console.log(value);
-			document.getElementById("num").innerHTML = value;
+			console.log(value, num, num1, num2);
+			
+			switch (value) {
+				case "+":
+				case "-":
+				case "*":
+				case "/":
+				case "=":
+					num1 = num;
+					console.log("1111");
+					if(num1 == ""){
+						return;
+					}
+					num = "";					
+					break;
+			}
+			
+			switch (value) {
+				case "C":
+					html = "숫자를 입력하세요.";
+					break;
+				case "+":
+				case "-":
+				case "*":
+				case "/":
+					type = value;
+					break;
+				case "=":
+					num2 = num;
+					switch (type) {
+						case "+":
+							html = (Number(num1) + Number(num2));
+							break;
+						default:
+							break;
+					}
+					break;
+				default:
+					num += value;
+					html = num;
+					break;
+			}
+			document.getElementById("num").innerHTML = html;
 		}
 	</script>
 </head>
@@ -39,26 +87,26 @@
 	<h1>JavaScript</h1>
 	<h2>url : http://localhost:8080/</h2>
 	<div>
-		<button type="button"></button>
+		<button type="button" onclick="btnEvent('C')">C</button>
 		<button type="button"></button>
 		<button type="button"></button>
 		<button type="button"></button>
 		<button type="button" onclick="btnEvent(7)">7</button>
 		<button type="button" onclick="btnEvent(8)">8</button>
 		<button type="button" onclick="btnEvent(9)">9</button>
-		<button type="button"></button>
+		<button type="button" onclick="btnEvent('+')">+</button>
 		<button type="button" onclick="btnEvent(4)">4</button>
 		<button type="button" onclick="btnEvent(5)">5</button>
 		<button type="button" onclick="btnEvent(6)">6</button>
-		<button type="button"></button>
+		<button type="button" onclick="btnEvent('-')">-</button>
 		<button type="button" onclick="btnEvent(1)">1</button>
 		<button type="button" onclick="btnEvent(2)">2</button>
 		<button type="button" onclick="btnEvent(3)">3</button>
-		<button type="button"></button>
+		<button type="button" onclick="btnEvent('*')">*</button>
 		<button type="button" onclick="btnEvent(0)">0</button>
-		<button type="button"></button>
-		<button type="button"></button>
-		<button type="button"></button>
+		<button type="button">.</button>
+		<button type="button">=</button>
+		<button type="button" onclick="btnEvent('/')">/</button>
 	</div>
 	<h1 id="num">숫자를 입력하세요.</h1>
 </body>
