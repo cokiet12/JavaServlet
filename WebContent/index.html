@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+	<style>
+		body {margin: 0;}
+		* {text-align: center;}
+		div {width: 60%; margin: 0 20%;}
+		div::after {display: table; content: ""; clear: both;}
+		button {
+			width: calc((100% / 4) - 10px);
+			height: 50px;
+			padding: 0;
+			border: 0;
+			background-color: black;
+			display: block;
+			float: left;
+			margin: 5px;
+			cursor: pointer;
+			font-size: 1.5rem;
+			font-weight: bold;
+			color: white;
+			border-radius: 5px;
+		}
+		button:active {
+			background-color: #c0cccc;
+			color: black;
+		}
+	</style>	
+	<script type="text/javascript">
+		function btnEvent(value){
+			console.log(value);
+			document.getElementById("num").innerHTML = value;
+		}
+	</script>
+</head>
+<body>
+	<h1>JavaScript</h1>
+	<h2>url : http://localhost:8080/</h2>
+	<div>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button" onclick="btnEvent(7)">7</button>
+		<button type="button" onclick="btnEvent(8)">8</button>
+		<button type="button" onclick="btnEvent(9)">9</button>
+		<button type="button"></button>
+		<button type="button" onclick="btnEvent(4)">4</button>
+		<button type="button" onclick="btnEvent(5)">5</button>
+		<button type="button" onclick="btnEvent(6)">6</button>
+		<button type="button"></button>
+		<button type="button" onclick="btnEvent(1)">1</button>
+		<button type="button" onclick="btnEvent(2)">2</button>
+		<button type="button" onclick="btnEvent(3)">3</button>
+		<button type="button"></button>
+		<button type="button" onclick="btnEvent(0)">0</button>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button"></button>
+	</div>
+	<h1 id="num">숫자를 입력하세요.</h1>
+</body>
+</html>
