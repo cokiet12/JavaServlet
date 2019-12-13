@@ -6,11 +6,14 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://gudi.kr/images/icon_goodee.png">
 <style>
 	body {margin: 0;}
+	*::focus {outline:none !important}
 	img {width: 100px;}
 	section {width: 500px; margin: 0 calc((100% - 500px) / 2); margin-top: 10px;}
 	section::after {display: table; content: ""; clear: both;}
 	img, div {width: 100px; height: 100px; float: left; cursor: pointer;}
 	div {background-color: #3a2f2f;}
+	button {width: 100%; height:50px; border: 0; cursor: pointer;}
+	button:active {background-color: #91b3bb;}
 </style>
 
 <script>
@@ -31,10 +34,17 @@
 		img.setAttribute("ondragstart", "drag(event)");
 		e.target.appendChild(img);
 	}
+	function rest(){
+		var size = document.getElementsByTagName("div").length;
+		for(var i = 0; i < size; i++){
+			document.getElementsByTagName("div")[i].innerHTML = "";
+		}
+	}
 </script>
 
 </head>
 <body>
+	<button type="button" onclick="rest()">초기화</button>
 	<section>
 		<img alt="image" src="/img/point.png" draggable="true" ondragstart="drag(event)">
 		<img alt="image" src="/img/android.png" draggable="true" ondragstart="drag(event)">
