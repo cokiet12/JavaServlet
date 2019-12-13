@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test1</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://gudi.kr/images/icon_goodee.png">
+<style>
+	body {margin: 0;}
+	div.box {width: calc(50% - 20px); height: 270px; margin: 10px; float: left; background-color: #3a2f2f;}
+	div#box::after {display: table; content: ""; clear: both;}
+	img {width: 100%;}
+</style>
+
+<script>
+	function drag(e){ // 1) 이미지 이동시 함수 호출
+// 		console.log("drag", e, e.target.id);
+		e.dataTransfer.setData("id", e.target.id);
+	}
+	
+	function allow(e){ // 2) 이미지가 영역에 들어 왔을 떄 함수 호출
+// 		console.log("allow", e);
+		e.preventDefault();  // 이벤트 막기
+	}
+	
+	function drop(e){ // 3) 이미지가 다른 영역에 옴겨졌을 때 함수 호출
+// 		console.log("drop", e);
+		e.preventDefault(); // 이벤트 막기
+		var id = e.dataTransfer.getData("id");
+// 		console.log(id);
+		e.target.appendChild(document.getElementById(id));
+	}
+
+</script>
+
+</head>
+<body>
+	<div id="box">
+		<div class="box" ondrop="drop(event)" ondragover="allow(event)">
+			<img id="img" alt="image" src="http://gudi.kr/images/icon_goodee.png"
+				 draggable="true" ondragstart="drag(event)"
+			>
+		</div>
+		<div class="box" ondrop="drop(event)" ondragover="allow(event)"></div>
+	</div>
+</body>
+</html>
