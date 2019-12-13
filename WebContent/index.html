@@ -35,40 +35,56 @@
 		var num = "";
 		var num1 = "";
 		var num2 = "";
+		var result = "";
 		var type = "";
 		function btnEvent(value){
-			console.log(value, num, num1, num2);
-			
+			// 예외 처리 부분
 			switch (value) {
 				case "+":
 				case "-":
 				case "*":
 				case "/":
 				case "=":
-					num1 = num;
-					console.log("1111");
 					if(num1 == ""){
 						return;
+					} else if(result != ""){
+						value = "C";
+					} else if(type != "") {
+						return;
 					}
-					num = "";					
 					break;
 			}
-			
+			// 기능 처리 부분
 			switch (value) {
 				case "C":
-					html = "숫자를 입력하세요.";
-					break;
+					num = "";
+					num1 = "";
+					num2 = "";
+					result = "";
+					type = "";
+					document.getElementById("num").innerHTML = "숫자를 입력하세요.";
+					return;
 				case "+":
 				case "-":
 				case "*":
 				case "/":
 					type = value;
+					num = "";
 					break;
 				case "=":
-					num2 = num;
+					result = " = ";
 					switch (type) {
 						case "+":
-							html = (Number(num1) + Number(num2));
+							result += (Number(num1) + Number(num2));
+							break;
+						case "-":
+							result += (Number(num1) - Number(num2));
+							break;
+						case "*":
+							result += (Number(num1) * Number(num2));
+							break;
+						case "/":
+							result += (Number(num1) / Number(num2));
 							break;
 						default:
 							break;
@@ -76,9 +92,14 @@
 					break;
 				default:
 					num += value;
-					html = num;
+					if(type == ""){
+						num1 = num;
+					} else {
+						num2 = num;
+					}
 					break;
 			}
+			html = `${num1} ${type} ${num2} ${result}`;
 			document.getElementById("num").innerHTML = html;
 		}
 	</script>
@@ -104,8 +125,8 @@
 		<button type="button" onclick="btnEvent(3)">3</button>
 		<button type="button" onclick="btnEvent('*')">*</button>
 		<button type="button" onclick="btnEvent(0)">0</button>
-		<button type="button">.</button>
-		<button type="button">=</button>
+		<button type="button" onclick="btnEvent('.')">.</button>
+		<button type="button" onclick="btnEvent('=')">=</button>
 		<button type="button" onclick="btnEvent('/')">/</button>
 	</div>
 	<h1 id="num">숫자를 입력하세요.</h1>
