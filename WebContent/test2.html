@@ -7,9 +7,9 @@
 <style>
 	body {margin: 0;}
 	img {width: 100px;}
-	section {width: 500px; margin: 0 calc((100% - 500px) / 2);}
+	section {width: 500px; margin: 0 calc((100% - 500px) / 2); margin-top: 10px;}
 	section::after {display: table; content: ""; clear: both;}
-	img, div {width: 100px; height: 100px; float: left;}
+	img, div {width: 100px; height: 100px; float: left; cursor: pointer;}
 	div {background-color: #3a2f2f;}
 </style>
 
@@ -27,6 +27,8 @@
 		var src = e.dataTransfer.getData("src");
 		var img = document.createElement("IMG");
 		img.setAttribute("src", src);
+		img.setAttribute("draggable", true);
+		img.setAttribute("ondragstart", "drag(event)");
 		e.target.appendChild(img);
 	}
 </script>
@@ -34,8 +36,11 @@
 </head>
 <body>
 	<section>
-		<img id="img1" alt="image1" src="http://gudi.kr/images/icon_goodee.png" draggable="true" ondragstart="drag(event)">
-		<img id="img2" alt="image2" src="/img/android.png" draggable="true" ondragstart="drag(event)">
+		<img alt="image" src="/img/point.png" draggable="true" ondragstart="drag(event)">
+		<img alt="image" src="/img/android.png" draggable="true" ondragstart="drag(event)">
+		<img alt="image" src="/img/man.png" draggable="true" ondragstart="drag(event)">
+		<img alt="image" src="/img/replay.png" draggable="true" ondragstart="drag(event)">
+		<img alt="image" src="/img/view_comfy.png" draggable="true" ondragstart="drag(event)">
 	</section>
 	<hr>
 	<section>
