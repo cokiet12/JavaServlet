@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/Test2/test2.css">
 <script src="/Test2/test2.js"></script>
 </head>
-<body>
+<body onload="reloadView()">
 	<button type="button" onclick="rest()">초기화</button>
 	<section>
 		<img alt="image" src="/img/point.png" draggable="true" ondragstart="drag(event)">
@@ -18,31 +18,31 @@
 	</section>
 	<hr>
 	<section>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
-		<div ondrop="drop(event)" ondragover="allow(event)"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
+		<div ondrop="drop(event, this)" ondragover="allow(event)" class="grid"></div>
 	</section>
 </body>
 </html>
