@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>메인</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+	.bg1 {background-color: #3a2f2f; color: white;}
+</style>
+<script>
+	function onLoad(){
+		document.getElementById("list").innerHTML = "";
+		for(var i = 0; i < 0; i++){
+			var html = `
+				<div class="col-sm-4 col-md-3">
+					<h1>테스트${i}</h1>	
+				</div>
+			   `;
+			document.getElementById("list").innerHTML += html;
+		}
+	}	
+</script>
+</head>
+<body onload="onLoad()">
+  <header class="jumbotron text-center">
+    <h1>우리가 만든 게임</h1>
+    <p>미로 찾기..</p>
+  </header>
+  <section class="container">
+  	<div class="btn-group btn-group-justified">
+	  <a href="/test2.html" class="btn btn-primary">생성</a>
+	</div>
+  </section>
+  <section class="container">
+  	<div class="row" id="list"></div>
+  </section>
+  <footer class="container-fluid text-center bg1">
+  	<h1>GDJ21</h1>
+  </footer>
+</body>
+</html>
