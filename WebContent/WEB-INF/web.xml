@@ -5,13 +5,18 @@
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   
-  <servlet>
-  	<servlet-name>Index</servlet-name>
-  	<servlet-class>kr.gudi.Index</servlet-class>
-  </servlet>
+  <context-param>
+    <param-name>viewLocation</param-name>
+    <param-value>/WEB-INF/views/</param-value>
+  </context-param>
+  <context-param>
+    <param-name>viewExtension</param-name>
+    <param-value>.jsp</param-value>
+  </context-param>
   
-  <servlet-mapping>
-  	<servlet-name>Index</servlet-name>
-  	<url-pattern>/Index</url-pattern>
-  </servlet-mapping>
+  <listener>
+    <description>서블렛 리스너 관리</description>
+    <listener-class>kr.gudi.util.ServletListener</listener-class>
+  </listener>
+
 </web-app>

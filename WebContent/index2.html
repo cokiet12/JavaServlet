@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+	<link rel="shortcut icon" type="image/x-icon" href="http://gudi.kr/images/icon_goodee.png">
+	<style>
+		body {margin: 0;}
+		* {text-align: center;}
+		*::focus {outline:none !important}
+		div {width: 60%; margin: 0 20%;}
+		div::after {display: table; content: ""; clear: both;}
+		button {
+			width: calc((100% / 4) - 10px);
+			height: 50px;
+			padding: 0;
+			border: 0;
+			background-color: black;
+			display: block;
+			float: left;
+			margin: 5px;
+			cursor: pointer;
+			font-size: 1.5rem;
+			font-weight: bold;
+			color: white;
+			border-radius: 5px;
+		}
+		button::active {
+			background-color: #c0cccc;
+			color: black;
+		}
+	</style>	
+	<script type="text/javascript">
+		var html = "숫자를 입력하세요.";
+		var num = "";
+		var num1 = "";
+		var num2 = "";
+		var result = "";
+		var type = "";
+		function btnEvent(value){
+			// 예외 처리 부분
+			switch (value) {
+				case "+":
+				case "-":
+				case "*":
+				case "/":
+				case "=":
+					if(num1 == ""){
+						return;
+					} else if(result != ""){
+						value = "C";
+					} else if(type != "") {
+						return;
+					}
+					break;
+			}
+			// 기능 처리 부분
+			switch (value) {
+				case "C":
+					num = "";
+					num1 = "";
+					num2 = "";
+					result = "";
+					type = "";
+					document.getElementById("num").innerHTML = "숫자를 입력하세요.";
+					return;
+				case "+":
+				case "-":
+				case "*":
+				case "/":
+					type = value;
+					num = "";
+					break;
+				case "=":
+					result = " = ";
+					switch (type) {
+						case "+":
+							result += (Number(num1) + Number(num2));
+							break;
+						case "-":
+							result += (Number(num1) - Number(num2));
+							break;
+						case "*":
+							result += (Number(num1) * Number(num2));
+							break;
+						case "/":
+							result += (Number(num1) / Number(num2));
+							break;
+						default:
+							break;
+					}
+					break;
+				default:
+					num += value;
+					if(type == ""){
+						num1 = num;
+					} else {
+						num2 = num;
+					}
+					break;
+			}
+			html = `${num1} ${type} ${num2} ${result}`;
+			document.getElementById("num").innerHTML = html;
+		}
+	</script>
+</head>
+<body>
+	<h1>JavaScript</h1>
+	<h2>url : http://localhost:8080/</h2>
+	<div>
+		<button type="button" onclick="btnEvent('C')">C</button>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button" onclick="btnEvent(7)">7</button>
+		<button type="button" onclick="btnEvent(8)">8</button>
+		<button type="button" onclick="btnEvent(9)">9</button>
+		<button type="button" onclick="btnEvent('+')">+</button>
+		<button type="button" onclick="btnEvent(4)">4</button>
+		<button type="button" onclick="btnEvent(5)">5</button>
+		<button type="button" onclick="btnEvent(6)">6</button>
+		<button type="button" onclick="btnEvent('-')">-</button>
+		<button type="button" onclick="btnEvent(1)">1</button>
+		<button type="button" onclick="btnEvent(2)">2</button>
+		<button type="button" onclick="btnEvent(3)">3</button>
+		<button type="button" onclick="btnEvent('*')">*</button>
+		<button type="button" onclick="btnEvent(0)">0</button>
+		<button type="button" onclick="btnEvent('.')">.</button>
+		<button type="button" onclick="btnEvent('=')">=</button>
+		<button type="button" onclick="btnEvent('/')">/</button>
+	</div>
+	<h1 id="num">숫자를 입력하세요.</h1>
+</body>
+</html>

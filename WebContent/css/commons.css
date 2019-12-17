@@ -1,0 +1,18 @@
+.default-bg {
+	background-color: #434b58;
+	color: white;
+}
+.cursor-pointer {
+	cursor: pointer;
+}
+.cursor-move {
+	cursor: move;
+}
+h1, h2, h3, p, a {
+	font-family: 'Nanum Pen Script', cursive;
+}
+#btn > a {
+	font-size: 2rem;
+}
+#map {background-color: #92edcf;}
+.grid {height: 96px;}
