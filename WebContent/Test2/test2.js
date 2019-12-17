@@ -47,6 +47,13 @@ function reloadView(){
 		}
 	}
 }
+function startView(){
+	var map = document.getElementById("map");
+	for(var i = 0; i < 25; i++){
+		map.innerHTML += '<div class="grid"></div>';
+	}
+	reloadView();
+}
 var x = 0; var y = 0;
 var i = 0;
 function keyEvent(e){
