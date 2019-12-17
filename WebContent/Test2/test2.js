@@ -47,18 +47,33 @@ function reloadView(){
 		}
 	}
 }
+
+var x = 0; 
+var y = 0;
+var i = 0;
 function startView(){
 	var map = document.getElementById("map");
+	map.innerHTML = "";
 	for(var i = 0; i < 25; i++){
 		map.innerHTML += '<div class="grid"></div>';
 	}
-	reloadView();
+	printView();
 }
-var x = 0; var y = 0;
-var i = 0;
+resource = JSON.parse(localStorage.grid);
+function printView(){
+	if(localStorage.grid){
+//		resource = JSON.parse(localStorage.grid);
+		for(var key in resource){
+			var src = resource[key];
+			var html = `<img src="${src}">`;
+			document.getElementsByClassName("grid")[key].innerHTML = html;
+		}
+	}
+}
 function keyEvent(e){
-//	console.log(e.keyCode);
 	var t = i;
+	var ox = x;
+	var oy = y;
 	switch (e.keyCode) {
 		case 37:  // 왼쪽
 			i--;
@@ -81,6 +96,7 @@ function keyEvent(e){
 			break;
 	}
 	
+	// 좌표 예외 처리
 	if(x < 0) {
 		x = 0;
 		i++;
@@ -96,16 +112,40 @@ function keyEvent(e){
 		y = 4;
 		i -= 5;
 	}
+	// 좌표 예외 처리 
 	
-	delete resource[t];
-	resource[i] = "http://localhost:8080/img/man.png";
-	localStorage.grid = JSON.stringify(resource);
-	reView();
-}
-function reView(){
-	var size = document.getElementsByClassName("grid").length;
-	for(var i = 0; i < size; i++){
-		document.getElementsByClassName("grid")[i].innerHTML = "";
+	// 이미지 예외 처리
+	switch (resource[i]) {
+		case "http://localhost:8080/img/view_comfy.png":
+			x = ox;
+			y = oy;
+			i = t;
+			break;
+		case "http://localhost:8080/img/android.png":
+			resource[0] = "http://localhost:8080/img/man.png";
+			delete resource[t];
+			x = 0; 
+			y = 0;
+			i = 0;
+			alert("당신은 운명하셨습니다.");
+			startView();
+			break;
+		case "http://localhost:8080/img/point.png":
+			alert("축!");
+			location.reload();
+			break;
+		case "http://localhost:8080/img/replay.png":
+			alert("돌아 갔니?");
+			x = ox;
+			y = oy;
+			i = t;
+			break;
+		default:
+			delete resource[t];
+			resource[i] = "http://localhost:8080/img/man.png";
+			startView();
+			break;
 	}
-	reloadView();
+	// 이미지 예외 처리
 }
+
