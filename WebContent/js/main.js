@@ -14,9 +14,9 @@ function print(){
 }
 function onClick(key){
 	var data = dataResource[key];
-	actionURL("/Run");
+	actionURL("/Run?map=" + data.map);
 }
 function onLoad(){
-	dataResource = getObjData("test");
+	dataResource = getObjData("game");
 	print();
 }

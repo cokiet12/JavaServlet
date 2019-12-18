@@ -5,7 +5,7 @@ function getObjData(key){
 	if(localStorage[key]){
 		return JSON.parse(localStorage.getItem(key));
 	} else {
-		return {};
+		return [];
 	}
 }
 function setObjData(key, value){
@@ -39,6 +39,9 @@ function drop(e, target){
 	var parent = target.parentNode;
 	for(var index = 0; index < children.length; index++){
 	  if(target == children[index]){
+		  if(imgURL == "man.png"){
+			  gameResource.start = index;
+		  }
 		  dataResource[index] = imgURL;
 	  }
 	}

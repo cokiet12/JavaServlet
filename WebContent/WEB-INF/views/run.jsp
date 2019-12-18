@@ -37,7 +37,7 @@
 	</section>
 	<br>
 	<section class="container text-center">
-		<h1 id="time">360초</h1>
+		<h1 id="time">30초</h1>
 	</section>
 	<br>
 	<section class="container">

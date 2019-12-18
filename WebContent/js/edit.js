@@ -1,16 +1,26 @@
 var dataResource = {};
+var gameResource = {};
 function mapReset(){
 	dataResource = {};
+	gameResource = {};
 	mapBlank();
 }
 function mapSave(){
-	console.log(dataResource);
 	var title = document.getElementById("title");
 	if(title.value == "") {
 		title.style.backgroundColor = "#ffff00";
 		alert("제목 입력해 주세요.");
 		return;
 	}
+	
+	var game = getObjData("game");
+	var index = game.length;
+	gameResource.title = title.value;
+	gameResource.map = index;
+	
+	game[index] = gameResource;
+	setObjData("game", game);
+	setObjData(index, dataResource);
 }
 function itemView(){
 	var items = ["man.png","point.png","replay.png","android.png","view_comfy.png"];
