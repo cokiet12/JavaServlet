@@ -4,12 +4,12 @@
 <head>
 <meta charset="UTF-8">
 <title>메인화면</title>
-<link rel="shortcut icon" type="image/x-icon" href="http://gudi.kr/images/icon_goodee.png">
+<link rel="shortcut icon" type="image/x-icon" href="/img/icon_goodee.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="${bootstrap}css/bootstrap.min.css">
+<script src="${jquery}jquery.min.js"></script>
+<script src="${bootstrap}js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/css/commons.css">
 <link rel="stylesheet" href="/css/main.css">
 <script type="text/javascript" src="/js/commons.js"></script>

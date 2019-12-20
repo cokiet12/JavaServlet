@@ -14,6 +14,15 @@
     <param-value>.jsp</param-value>
   </context-param>
   
+  <context-param>
+    <param-name>bootstrap</param-name>
+    <param-value>/lib/bootstrap-3.3.2-dist/</param-value>
+  </context-param>
+  <context-param>
+    <param-name>jquery</param-name>
+    <param-value>/lib/jquery-3.4.1-dist/</param-value>
+  </context-param>
+  
   <listener>
     <description>서블렛 리스너 관리</description>
     <listener-class>kr.gudi.util.ServletListener</listener-class>
