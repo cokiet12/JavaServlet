@@ -11,6 +11,32 @@
 	<script src="${jquery}jquery.min.js"></script>
 	<script src="${bootstrap}js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="/blog/css/commons.css">
+	<script>
+		function login(){
+			console.log("login()");
+			var id = document.getElementById("id1").value;
+			var pwd = document.getElementById("pwd1").value;
+			console.log(id, pwd);
+			
+			var url = "/blog/LoginService?id=" + id +"&pwd=" + pwd;
+			console.log(url);
+			
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+			      console.log("OK", this.responseText);
+			      if(this.responseText == 1){
+			    	  location.href = "/blog/Profile";
+			      }else {
+			    	  alert("로그인 실패");
+			    	  location.href = "/blog/Login";
+			      }
+			    }
+			};
+			xhttp.open("POST", url, true);
+			xhttp.send();
+		}
+	</script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -48,20 +74,21 @@
 	  
 	<div class="container">    
 		<h1 class="text-center">Login</h1>
-		<form>
+<!-- 		<form onsubmit="return false"> -->
+		<form action="/blog/LoginService" method="post">
 			<div class="form-group">
 		    	<label class="control-label" for="id">Id:</label>
-		      	<input type="text" class="form-control" id="id" name="id" required="required" placeholder="계정을 입력하세요.">
+		      	<input type="text" class="form-control" id="id1" name="id" required="required" placeholder="계정을 입력하세요.">
 		  	</div>
 		  	<div class="form-group">
 		    	<label class="control-label" for="pwd">Password:</label>
-		      	<input type="password" class="form-control" id="pwd" name="pwd" required="required" placeholder="비밀번호를 입력하세요.">
+		      	<input type="password" class="form-control" id="pwd1" name="pwd" required="required" placeholder="비밀번호를 입력하세요.">
 		  	</div>
 		  	<div class="form-group">
-		      	<button type="submit" class="btn btn-success btn-block font-default">로그인</button>
+		  		<button type="submit" class="btn btn-success btn-block font-default">로그인</button>
+<!-- 		      	<button type="submit" class="btn btn-success btn-block font-default" onclick="login()">로그인</button> -->
 			</div>
-		</form>
-			  
+		</form>			  
     </div>
 	    
 	<footer class="container-fluid text-center">
