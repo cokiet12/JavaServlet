@@ -13,7 +13,7 @@ import kr.gudi.util.Commons;
 public class Profile extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		Commons.sendViewJSP(req, res, "blog/profile");
+			Commons.sendViewJSP(req, res, "blog/profile");
 	}
 
 }

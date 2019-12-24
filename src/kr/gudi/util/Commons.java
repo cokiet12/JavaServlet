@@ -3,6 +3,7 @@ package kr.gudi.util;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Commons {
 	
@@ -23,6 +24,23 @@ public class Commons {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		
+	}
+	
+	public static boolean loginCheck(HttpServletRequest req, HttpServletResponse res) {
+		
+		try {
+			HttpSession session = req.getSession();
+			Object id = session.getAttribute("id");
+			if(id == null) {
+				System.out.println("id 없음");
+				res.sendRedirect("/blog/Login");
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return true;
 	}
 
 }

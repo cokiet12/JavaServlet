@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.gudi.util.Commons;
+
 @WebServlet("/blog/LoginCheck")
 public class LoginCheck extends HttpServlet {
 	
@@ -31,6 +33,27 @@ public class LoginCheck extends HttpServlet {
 		System.out.println(name);
 		
 		System.out.println("------");
+		
+	}
+	
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		
+		req.setCharacterEncoding("UTF-8");
+		HttpSession session = req.getSession();
+		Object id = session.getAttribute("id");
+		if(id == null) {
+			res.getWriter().print("0");
+		}else {
+			res.getWriter().print("1");
+		}
+		
+		
+//		if(Commons.loginCheck(req, res)) {
+//			res.getWriter().print("1");
+//		} else {
+//			res.getWriter().print("0");
+//		}
+		
 	}
 
 }

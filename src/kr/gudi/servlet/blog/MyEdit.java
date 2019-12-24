@@ -13,7 +13,9 @@ import kr.gudi.util.Commons;
 public class MyEdit extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		Commons.sendViewJSP(req, res, "blog/myEdit");
+		if(Commons.loginCheck(req, res)) {
+			Commons.sendViewJSP(req, res, "blog/myEdit");
+		}
 	}
 
 }

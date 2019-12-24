@@ -11,34 +11,9 @@
 	<script src="${jquery}jquery.min.js"></script>
 	<script src="${bootstrap}js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="/blog/css/commons.css">
-	<script>
-		function login(){
-			console.log("login()");
-			var id = document.getElementById("id1").value;
-			var pwd = document.getElementById("pwd1").value;
-			console.log(id, pwd);
-			
-			var url = "/blog/Login?id=" + id +"&pwd=" + pwd;
-			console.log(url);
-			
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-			    if (this.readyState == 4 && this.status == 200) {
-			      console.log("OK", this.responseText);
-			      if(this.responseText == 1){
-			    	  location.href = "/blog/Profile";
-			      }else {
-			    	  alert("로그인 실패");
-			    	  location.href = "/blog/Login";
-			      }
-			    }
-			};
-			xhttp.open("POST", url, true);
-			xhttp.send();
-		}
-	</script>
+	<script src="/blog/js/commons.js"></script>
 </head>
-<body>
+<body onload="sessionCheck()">
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
@@ -65,6 +40,9 @@
 	        </div>
 	      </form>
 	      <ul class="nav navbar-nav navbar-right">
+	        <%HttpSession sess = request.getSession();%>
+	        <li><a href="/blog/MyEdit"><span class="glyphicon glyphicon-user"></span> <%= sess.getAttribute("name") %></a></li>
+	        <li><a href="javascript:logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 	        <li><a href="/blog/SignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       		<li><a href="/blog/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	      </ul>

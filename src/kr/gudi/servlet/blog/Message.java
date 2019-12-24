@@ -13,7 +13,11 @@ import kr.gudi.util.Commons;
 public class Message extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		Commons.sendViewJSP(req, res, "blog/message");
+		
+		if(Commons.loginCheck(req, res)) {
+			Commons.sendViewJSP(req, res, "blog/message");
+		}
+		
 	}
 
 }

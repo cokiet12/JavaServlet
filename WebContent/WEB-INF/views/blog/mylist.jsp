@@ -11,8 +11,9 @@
 	<script src="${jquery}jquery.min.js"></script>
 	<script src="${bootstrap}js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="/blog/css/commons.css">
+	<script src="/blog/js/commons.js"></script>
 </head>
-<body>
+<body onload="sessionCheck()">
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
@@ -39,7 +40,9 @@
 	        </div>
 	      </form>
 	      <ul class="nav navbar-nav navbar-right">
-<!-- 	        <li><a href="#"><span class="glyphicon glyphicon-user"></span> 구디 아카데미</a></li> -->
+	        <%HttpSession sess = request.getSession();%>
+	        <li><a href="/blog/MyEdit"><span class="glyphicon glyphicon-user"></span> <%= sess.getAttribute("name") %></a></li>
+	        <li><a href="javascript:logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 	        <li><a href="/blog/SignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       		<li><a href="/blog/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	      </ul>
