@@ -18,7 +18,7 @@
 			var pwd = document.getElementById("pwd1").value;
 			console.log(id, pwd);
 			
-			var url = "/blog/LoginService?id=" + id +"&pwd=" + pwd;
+			var url = "/blog/Login?id=" + id +"&pwd=" + pwd;
 			console.log(url);
 			
 			var xhttp = new XMLHttpRequest();
@@ -74,8 +74,8 @@
 	  
 	<div class="container">    
 		<h1 class="text-center">Login</h1>
-<!-- 		<form onsubmit="return false"> -->
-		<form action="/blog/LoginService" method="post">
+		<form onsubmit="return false">
+<!-- 		<form action="/blog/Login" method="post"> -->
 			<div class="form-group">
 		    	<label class="control-label" for="id">Id:</label>
 		      	<input type="text" class="form-control" id="id1" name="id" required="required" placeholder="계정을 입력하세요.">
@@ -85,8 +85,8 @@
 		      	<input type="password" class="form-control" id="pwd1" name="pwd" required="required" placeholder="비밀번호를 입력하세요.">
 		  	</div>
 		  	<div class="form-group">
-		  		<button type="submit" class="btn btn-success btn-block font-default">로그인</button>
-<!-- 		      	<button type="submit" class="btn btn-success btn-block font-default" onclick="login()">로그인</button> -->
+<!-- 		  		<button type="submit" class="btn btn-success btn-block font-default">로그인</button> -->
+		      	<button type="submit" class="btn btn-success btn-block font-default" onclick="login()">로그인</button>
 			</div>
 		</form>			  
     </div>
