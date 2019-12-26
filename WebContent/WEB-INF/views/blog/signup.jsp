@@ -52,7 +52,7 @@
 	  
 	<div class="container">    
 		<h1 class="text-center">Sign Up</h1>
-		<form>
+		<form action="/blog/SignUp" method="post">
 			<div class="form-group">
 		    	<label class="control-label" for="id">Id:</label>
 		      	<input type="text" class="form-control" id="id" name="id" required="required" placeholder="계정을 입력하세요.">

@@ -1,6 +1,7 @@
 package kr.gudi.servlet.blog;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -32,17 +33,27 @@ public class Login extends HttpServlet {
 //		System.out.println(path);
 //		System.out.println("---2");
 		
-		if("root".equals(id)) {
-			if("1234".equals(pwd)) {
-				res.getWriter().print("1");
-//				res.sendRedirect("/blog/Profile");
-				
-				session.setAttribute("id", id);
-				session.setAttribute("name", "구디");
-				
-				return;
+		for(int i = 0; i < SignUp.userList.size(); i++) {
+			
+			Map<String, Object> userMap = SignUp.userList.get(i);
+			Object userId = userMap.get("id");
+			Object userPwd = userMap.get("pwd");
+			Object UserName = userMap.get("name");
+			
+			if(userId.equals(id)) {
+				if(userPwd.equals(pwd)) {
+					res.getWriter().print("1");
+	//				res.sendRedirect("/blog/Profile");
+					
+					session.setAttribute("id", id);
+					session.setAttribute("name", UserName);
+					
+					return;
+				}
 			}
+			
 		}
+		
 //		res.sendRedirect("/blog/Login");
 		res.getWriter().print("2");
 	}
